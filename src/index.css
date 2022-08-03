@@ -6,6 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
 .cart-item {
   display: inline-flex;
   margin: 20px 10px;
@@ -17,8 +23,8 @@ body {
   margin-top: 20px;
 }
 .action-icons {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   margin-right: 10px;
 }
 .action-icons:hover {
