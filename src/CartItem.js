@@ -20,15 +20,56 @@ class CartItem extends React.Component {
           // this.setState({
           //      qty: this.state.qty + 1
           // });
-          
+
+          {//*   Concept: If we call setState() function of form 1(object passed) thrice still the resultant change in the state would be equivalent to execution of only last setState() function 
+          // this.setState({
+          //      qty: this.state.qty + 1,
+          //      title: "A Mobile Phone"
+          // });
+          // this.setState({
+          //      qty: this.state.qty + 1,
+          //      price: 20000
+          // });
+          // this.setState({
+          //      qty: this.state.qty + 1
+          // });
+          }
+
+          //? Variation
+          // variation of setState() function of form 1
+          // setState(object updating the state, callback function performed when object has finished updating the state)
+
           // Set state form 2 --> When we require the previous state then we use function form
           // this.setState( function )
-          this.setState((previousState) => {
-               return {
-                    qty: previousState.qty + 1 
-               }
-          })
+          // this.setState((previousState) => {
+          //      return {
+          //           qty: previousState.qty + 1 
+          //      }
+          // });
 
+          {//* Concept: If we call setState() function  of form 2(function passed) thrice in this case react will maintain a queue of functions and call them and then render it in UI
+          // this.setState((previousState) => {
+          //      return {
+          //           qty: previousState.qty + 1 
+          //      }
+          // });
+
+          // this.setState((previousState) => {
+          //      return {
+          //           qty: previousState.qty + 1 
+          //      }
+          // });
+
+          // this.setState((previousState) => {
+          //      return {
+          //           qty: previousState.qty + 1 
+          //      }
+          // });
+          }
+
+          //? Variation
+          // variation of setState() function of form 2
+          // setState(function updating the state, callback function performed when function  finished updating the state)
      }
      
      decreasaeQuantiy = () => {
