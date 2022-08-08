@@ -41,11 +41,11 @@ class CartItem extends React.Component {
 
           // Set state form 2 --> When we require the previous state then we use function form
           // this.setState( function )
-          // this.setState((previousState) => {
-          //      return {
-          //           qty: previousState.qty + 1 
-          //      }
-          // });
+          this.setState((previousState) => {
+               return {
+                    qty: previousState.qty + 1 
+               }
+          });
 
           {//* Concept: If we call setState() function  of form 2(function passed) thrice in this case react will maintain a queue of functions and call them and then render it in UI
           // this.setState((previousState) => {

@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App{
+.cart{
   display: flex;
   flex-direction: column;
 }
