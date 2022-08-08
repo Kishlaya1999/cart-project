@@ -62,7 +62,7 @@ class Cart extends React.Component{
                return ;
           }
 
-          // increasing the value by 1 of clicked product in product array
+          // decreasing the value by 1 of clicked product in product array
           products[indexOfClickedProduct].qty -= 1;
 
           // Updating the state with new values
@@ -71,7 +71,20 @@ class Cart extends React.Component{
                products  //shorthand of above statement
           })
 
-          
+     }
+
+     handleDeleteProduct = (id) =>{
+          // Getting the product array from state
+          const { products } = this.state;
+
+          // filtering the items which are not equal to the id i.e removing the object whose id is equal 
+          const items = products.filter((item) => item.id !== id);
+
+          // Updating the state with new values
+          this.setState({
+               products: items
+          })
+
      }
 
      render(){
@@ -89,6 +102,7 @@ class Cart extends React.Component{
                               key={product.id}
                               onIncreaseQuantity={this.handleIncreaseQuantity}
                               onDecreaseQuantity={this.handleDecreaseQuantity}
+                              onDeleteProduct={this.handleDeleteProduct}
                               />
                          )
                          // passing the handleIncreaseQuantity as a prop
