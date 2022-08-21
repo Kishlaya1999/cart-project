@@ -1,96 +1,11 @@
-import React from 'react'
+import React from 'react';
 import CartItem from './CartItem';
 
-class Cart extends React.Component{
+const Cart = (props) =>{ 
 
-     constructor(){
-          super();
-          this.state = {
-               products : [
-                    {
-                         price: 19999,
-                         title: 'Mobile Phone',
-                         qty : 5,
-                         img : ' ',
-                         id: 1
-                    },
-                    {
-                         price: 999,
-                         title: 'Watch',
-                         qty : 10,
-                         img : ' ',
-                         id: 2
-                    },
-                    {
-                         price: 49999,
-                         title: 'Laptop',
-                         qty : 1,
-                         img : ' ',
-                         id: 3
-                    }
-               ]
-          }
-     }
-
-     handleIncreaseQuantity = (product) => {
-          console.log("Please increase the quantity of ", product);
-          // Getting the product array from state
-          const {products} = this.state;
-
-          const indexOfClickedProduct = products.indexOf(product);
-
-          // increasing the value by 1 of clicked product in product array
-          products[indexOfClickedProduct].qty += 1;
-
-          // Updating the state with new values
-          this.setState({
-               // products: products
-               products  //shorthand of above statement
-          })
-
-          
-     }
-
-     handleDecreaseQuantity = (product) => {
-          console.log("Please increase the quantity of ", product);
-          // Getting the product array from state
-          const {products} = this.state;
-
-          const indexOfClickedProduct = products.indexOf(product);
-
-          if(products[indexOfClickedProduct].qty == 0){
-               return ;
-          }
-
-          // decreasing the value by 1 of clicked product in product array
-          products[indexOfClickedProduct].qty -= 1;
-
-          // Updating the state with new values
-          this.setState({
-               // products: products
-               products  //shorthand of above statement
-          })
-
-     }
-
-     handleDeleteProduct = (id) =>{
-          // Getting the product array from state
-          const { products } = this.state;
-
-          // filtering the items which are not equal to the id i.e removing the object whose id is equal 
-          const items = products.filter((item) => item.id !== id);
-
-          // Updating the state with new values
-          this.setState({
-               products: items
-          })
-
-     }
-
-     render(){
           // const arr = [1,2,3,4,5];
 
-          const {products} = this.state;
+          const {products} = props;
           
           return (
                <div className='cart'>
@@ -100,23 +15,19 @@ class Cart extends React.Component{
                          <CartItem 
                               product={product}
                               key={product.id}
-                              onIncreaseQuantity={this.handleIncreaseQuantity}
-                              onDecreaseQuantity={this.handleDecreaseQuantity}
-                              onDeleteProduct={this.handleDeleteProduct}
+                              onIncreaseQuantity={props.onIncreaseQuantity}
+                              onDecreaseQuantity={props.onDecreaseQuantity}
+                              onDeleteProduct={props.onDeleteProduct}
                               />
                          )
                          // passing the handleIncreaseQuantity as a prop
                     })}
 
                     {/* <CartItem title={"Watch"} price={20000} qty={2}/> */}
-                    {/* <CartItem/>
-                    <CartItem/> */}
-               {/* { arr.map((item)=>{
-                    return item * 2;
-               }) } */}
+                    <div style={{fontSize: 25}}><strong>Total:</strong> {props.total}</div>
                </div>
           );
-     }
+     
 }
 
 export default Cart;

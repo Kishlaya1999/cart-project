@@ -78,13 +78,13 @@ class CartItem extends React.Component {
      render() {
           // console.log(this.props);
           // Destructuring the props
-          const {title , price, qty} = this.props.product;
+          const {title , price, qty, img} = this.props.product;
           const {product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = this.props;
           return ( 
 
                <div className = 'cart-item' >
                     <div className='left-block'>
-                         <img style={styles.image} src="" alt="" />
+                         <img style={styles.image} src={img} alt="" />
                     </div>
                     <div className='right-block'>
                          <div style={{fontSize: 25}}>{title}</div>
@@ -120,7 +120,7 @@ const styles = {
      image: {
           width: 110,
           height: 110,
-          background: "#777",
+          // background: "#777",
           borderRadius: 5
      }
 }
